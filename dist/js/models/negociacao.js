@@ -10,8 +10,8 @@ export class Negociacao{
 
     }
 
-    get data (){return this.#data    }        
-    get quantidade (){return this.#quantidade    }        
-    get valor (){return this.#valor    }        
+    get data (){return this.#data}        
+    get quantidade (){return this.#quantidade}        
+    get valor (){return this.#valor}        
 }
 
