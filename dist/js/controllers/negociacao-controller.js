@@ -7,5 +7,6 @@ export class NegociacaoController {
     }
     adiciona() {
         const negociacao = new Negociacao(this.inputData.value, this.inputQuantidade.value, this.inputValor.value);
+        console.log(negociacao);
     }
 }
