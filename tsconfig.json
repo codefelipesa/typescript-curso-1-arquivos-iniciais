@@ -1,7 +1,8 @@
 {
     "compilerOptions": {
-        "outDir": "dist/js",
-        "target": "ES6"
+        "outDir": "dist/js", // Destino da pasta na qual vão os arquivos
+        "target": "ES6", // Para qual versão do ECMAScript ele vai converter os codes TS
+        "noEmitOnError": true // Ele não vai emitir os arquivos JS, quando tiver algum erro no arquivo JS
     },
     "include": ["app/**/*"]
 }
