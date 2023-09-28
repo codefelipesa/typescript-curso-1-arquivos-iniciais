@@ -12,7 +12,11 @@ export class NegociacaoController {
     }
 
     adiciona(){
-        const negociacao = new Negociacao(this.inputData.value, this.inputQuantidade.value, this.inputValor.value )
+        const exp = /-/g // Uma expressão regular que vai buscar todos os "-", e add o "g" para ela fazer a global find
+        const date = new Date(this.inputData.value.replace(exp, ',')) // Cria uma data quando a função for chamada
+        const quantidade = parseInt(this.inputQuantidade.value)
+        const valor = parseFloat(this.inputValor.value)
+        const negociacao = new Negociacao(date,quantidade,valor )
         console.log(negociacao)
     }
 }
