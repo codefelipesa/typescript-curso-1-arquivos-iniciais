@@ -8,6 +8,7 @@ export class NegociacaoController {
     adiciona() {
         const negociacao = this.criaNegociacao();
         console.log(negociacao);
+        this.limparForm();
     }
     criaNegociacao() {
         const exp = /-/g; // Uma expressão regular que vai buscar todos os "-", e add o "g" para ela fazer a global find
@@ -15,5 +16,10 @@ export class NegociacaoController {
         const quantidade = parseInt(this.inputQuantidade.value);
         const valor = parseFloat(this.inputValor.value);
         return new Negociacao(date, quantidade, valor);
+    }
+    limparForm() {
+        this.inputData.value = "";
+        this.inputQuantidade.value = "";
+        this.inputValor.value = "";
     }
 }
