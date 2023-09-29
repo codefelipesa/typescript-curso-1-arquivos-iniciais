@@ -8,7 +8,7 @@ import { Negociacao } from "./negociacao.js";
     }
 
     lista(): Array <Negociacao> {
-        return this.negociacoes
+        return [...this.negociacoes] // Colocamos o Spread para realizar uma copia da lista, sem o result interferir na lista principal
     }
 }
 

@@ -6,7 +6,7 @@ export class Negociacoes {
         this.negociacoes.push(negociacao);
     }
     lista() {
-        return this.negociacoes;
+        return [...this.negociacoes]; // Colocamos o Spread para realizar uma copia da lista, sem o result interferir na lista principal
     }
 }
 const negociacoes = new Negociacoes();
