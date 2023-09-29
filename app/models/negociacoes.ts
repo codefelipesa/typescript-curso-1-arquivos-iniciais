@@ -7,8 +7,8 @@ import { Negociacao } from "./negociacao.js";
         this.negociacoes.push(negociacao)
     }
 
-    lista(): Array <Negociacao> {
-        return [...this.negociacoes] // Colocamos o Spread para realizar uma copia da lista, sem o result interferir na lista principal
+    lista(): ReadonlyArray <Negociacao> { // O ReadOnly deixa o Array com acesso a apenas leitura sem modifica-lo
+        return this.negociacoes 
     }
 }
 
