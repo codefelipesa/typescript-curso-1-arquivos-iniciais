@@ -1,18 +1,14 @@
 export class Negociacao{
-    private _data : Date  // Usamos o atributo private para declaração de valor privado, e o "_" para não ter nomes duplicados
-    private _quantidade : number;  // Usamos o atributo private para declaração de valor privado, e o "_" para não ter nomes duplicados
-    private _valor : number  // Usamos o atributo private para declaração de valor privado, e o "_" para não ter nomes duplicados
+ 
+    constructor(
+        private _data: Date, 
+        readonly quantidade : number, 
+        readonly valor: number)
+        { }
+    get volume(){return this.quantidade * this.valor} 
+    get data(): Date{
+        const data = new Date(this._data.getTime()) // Criamos uma copia da Data atual armazenando na const
+        // Para que ela não possa ser alterada, e ser for vai ser alterada a data "cópia"
+        return data}
 
-    constructor(data: Date, quantidade : number, valor: number){
-        this._data = data;
-        this._quantidade = quantidade;
-        this._valor = valor;
-
-    }
-
-    get data (){return this._data}        
-    get quantidade (){return this._quantidade}        
-    get valor (){return this._valor} 
-    get volume (){return this._quantidade * this._valor}       
-}
-
+} 
