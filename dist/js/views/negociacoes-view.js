@@ -19,4 +19,7 @@ export class NegociacoesView {
 
         `;
     }
+    update(model) {
+        this.elemento.innerHTML = this.template();
+    }
 }

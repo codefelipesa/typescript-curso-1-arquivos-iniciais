@@ -1,3 +1,5 @@
+import { Negociacoes } from "../models/negociacoes.js"
+
 export class NegociacoesView {
 
     private elemento: HTMLElement
@@ -23,5 +25,8 @@ export class NegociacoesView {
 
         `}
 
+    update(model: Negociacoes) : void{
+        this.elemento.innerHTML = this.template()
+    }
 }
 
