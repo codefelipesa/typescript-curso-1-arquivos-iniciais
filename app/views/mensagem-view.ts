@@ -1,8 +1,7 @@
-export class MensagemView {
-    private element : HTMLElement
-    constructor(seletor : string) {
-        this.element = document.querySelector(seletor)
-    }
+import { View } from "./view.js"
+
+export class MensagemView extends View {
+
 
     template(model : string) : string {
         return `
@@ -13,6 +12,6 @@ export class MensagemView {
 
     update(model : string) : void {
         const template = this.template(model)
-        this.element.innerHTML = template
+        this.elemento.innerHTML = template
     }
 }
