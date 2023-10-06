@@ -7,6 +7,8 @@ export class NegociacaoController {
         this.negociacoes = new Negociacoes();
         this.negociacoesView = new NegociacoesView("[data-negociacoes-views]");
         this.mensagemView = new MensagemView("#mensagemView");
+        this.Sabado = 6;
+        this.Domingo = 0;
         this.inputData = document.querySelector('#data');
         this.inputQuantidade = document.querySelector('#quantidade');
         this.inputValor = document.querySelector('#valor');
@@ -14,9 +16,16 @@ export class NegociacaoController {
     }
     adiciona() {
         const negociacao = this.criaNegociacao();
+        if (!this.diaUtil(negociacao.data)) {
+            this.mensagemView.update('São aceitas apenas negociações feitas em dias úteis');
+            return;
+        }
         this.negociacoes.adiciona(negociacao);
         this.atualizaView();
         this.limparForm();
+    }
+    diaUtil(data) {
+        return data.getDay() > this.Domingo && data.getDay() < this.Sabado;
     }
     criaNegociacao() {
         const exp = /-/g; // Uma expressão regular que vai buscar todos os "-", e add o "g" para ela fazer a global find
