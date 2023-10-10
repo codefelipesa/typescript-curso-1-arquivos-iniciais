@@ -5,6 +5,9 @@ export abstract class View <T> {
 
     constructor(seletor: string, escapar?: boolean) { // A interrogação é usada para dizer que o parâmetro é opcional
         this.elemento = document.querySelector(seletor)
+        if(escapar = true){
+            this.escapar = escapar
+        }
 
     }
 
