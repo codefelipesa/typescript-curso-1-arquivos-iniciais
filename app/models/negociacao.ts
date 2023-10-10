@@ -15,7 +15,7 @@ export class Negociacao{
         return data
     }
 
-    criaDe(dateString: string, quantidadeString: string, valorString : string) : Negociacao{
+    static criaDe(dateString: string, quantidadeString: string, valorString : string) : Negociacao{
         const exp = /-/g // Uma expressão regular que vai buscar todos os "-", e add o "g" para ela fazer a global find
         const date = new Date(dateString.replace(exp, ',')) // Cria uma data quando a função for chamada
         const quantidade = parseInt(quantidadeString)
