@@ -1,14 +1,18 @@
 export abstract class View <T> {
 
     protected elemento : HTMLElement
+    private escapar: boolean = false
 
-    constructor(seletor: string) {
+    constructor(seletor: string, escapar?: boolean) { // A interrogação é usada para dizer que o parâmetro é opcional
         this.elemento = document.querySelector(seletor)
 
     }
 
     update(model : T) : void {
-        const template = this.template(model)
+        let template = this.template(model)
+        if(this.escapar = true){
+            template = template.replace(/<script>[\s\S]*?<\/script</,'')
+        }
         this.elemento.innerHTML = template
     }
 
