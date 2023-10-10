@@ -21,10 +21,17 @@ export class NegociacaoController {
     }
 
     adiciona() : void {
-        const negociacao = this.criaNegociacao()
+        const negociacaoTemp = new Negociacao (null, 0, 0)
+        const negociacao = negociacaoTemp.criaDe(
+            this.inputData.value,
+            this.inputQuantidade.value,
+            this.inputValor.value
+        )
         if(!this.diaUtil(negociacao.data) ) {
             this.mensagemView.update('São aceitas apenas negociações feitas em dias úteis') 
-            return}
+            return
+        }
+
         this.negociacoes.adiciona(negociacao)
         this.atualizaView()
         this.limparForm()
@@ -37,13 +44,6 @@ export class NegociacaoController {
         return data.getDay() > diasDaSemana.Domingo && data.getDay() < diasDaSemana.Sabado
     }
 
-    criaNegociacao() : Negociacao {
-        const exp = /-/g // Uma expressão regular que vai buscar todos os "-", e add o "g" para ela fazer a global find
-        const date = new Date(this.inputData.value.replace(exp, ',')) // Cria uma data quando a função for chamada
-        const quantidade = parseInt(this.inputQuantidade.value)
-        const valor = parseFloat(this.inputValor.value)
-        return new Negociacao(date,quantidade,valor )
-    }
 
     limparForm() :void {
             this.inputData.value = ""
@@ -57,5 +57,5 @@ export class NegociacaoController {
         this.negociacoesView.update(this.negociacoes)
         this.mensagemView.update("Negociação adicionada com sucesso!")
     }
-
 }
+
