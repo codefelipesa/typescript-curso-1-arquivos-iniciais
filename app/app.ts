@@ -3,7 +3,7 @@ import { NegociacoesView } from "./views/negociacoes-view.js";
 
 const controller = new NegociacaoController()
 
-const getForm = document.querySelector('[data-form]')
+const getForm = document.querySelector('[data-form]') as HTMLInputElement
 getForm.addEventListener('submit', e => {
     e.preventDefault()
     controller.adiciona()

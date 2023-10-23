@@ -4,7 +4,8 @@
         "target": "ES6", // Para qual versão do ECMAScript ele vai converter os codes TS
         "noEmitOnError": true, // Ele não vai emitir os arquivos JS, quando tiver algum erro no arquivo JS
         "noImplicitAny": true, // Não vai adicionar o "any" implicitamente como tipagem 
-        "removeComments":true // Para não compilar os comentários 
+        "removeComments":true,// Para não compilar os comentários 
+        "strictNullChecks": true
     },
     "include": ["app/**/*"]  // Onde está a pasta dos arquivos TS que ele vai compilar
 }
