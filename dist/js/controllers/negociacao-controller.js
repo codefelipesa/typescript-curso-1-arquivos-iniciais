@@ -30,7 +30,7 @@ export class NegociacaoController {
         this.inputData.value = "";
         this.inputQuantidade.value = "";
         this.inputValor.value = "";
-        this.inputData.focus(); // Para o foco retornar ao inputData
+        this.inputData.focus();
     }
     atualizaView() {
         this.negociacoesView.update(this.negociacoes);
