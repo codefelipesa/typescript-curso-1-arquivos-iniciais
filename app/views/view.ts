@@ -3,7 +3,7 @@ export abstract class View <T> {
     protected elemento : HTMLElement
     private escapar: boolean = false
 
-    constructor(seletor: string, escapar?: boolean) { // A interrogação é usada para dizer que o parâmetro é opcional
+    constructor(seletor: string, escapar?: boolean) { // A interrogação é usada para dizer que o parâmetro é opcional, ele precisa ser sempre o último parâmetro
         this.elemento = document.querySelector(seletor)
         if(escapar = true){
             this.escapar = escapar
